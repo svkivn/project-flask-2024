@@ -1,15 +1,5 @@
-# -*- coding: UTF-8 -*-
-"""
-hello_flask: First Python-Flask webapp
-"""
-from flask import Flask, request, redirect, url_for, current_app
-app = Flask(__name__, instance_relative_config=True)    # Construct an instance of Flask class for our webapp
-
-app.config.from_pyfile("config.py", 
-                       # silent=True
-                       )
-# app.config.from_object("config")
-
+from . import app
+from flask import request, redirect, url_for
 
 @app.route('/')   # URL '/' to be handled by main() route handler
 def main():
@@ -45,10 +35,3 @@ def hello(name):
     """Привітати користувача по імені"""
     click.echo(f"Hello, {name}!")
     print("Hello server")
-
-with app.app_context():
-    # Тепер можна отримати доступ до current_app, хоча ми поза запитом
-    print(current_app.name)  # Виведе назву додатка
-
-if __name__ == '__main__':  # Script executed directly?
-    app.run(port=81)  # Launch built-in web server and run this Flask webapp, debug=True\
