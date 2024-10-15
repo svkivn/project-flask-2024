@@ -1,9 +1,14 @@
-from flask import Flask  # From module flask import class Flask
-app = Flask(__name__)    # Construct an instance of Flask class for our webapp
+from flask import Flask  
+app = Flask(__name__)    
 
 @app.route('/')   # URL '/' to be handled by main() route handler
 def main():
-    return 'Hell1o, world!'
+    return 'Hello, world!'
+
+@app.route('/homepage') 
+def home():
+    """View for the Home page of your website."""
+    return "This is your homepage :) "
 
 if __name__ == "__main__":
     app.run()  # Launch built-in web server and run this Flask webapp, debug=True
