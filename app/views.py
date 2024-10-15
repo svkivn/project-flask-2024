@@ -27,11 +27,3 @@ def admin():
     return redirect(to_url)
 
 
-import click
-# Додаємо команду за допомогою Click
-@app.cli.command("hello")
-@click.argument("name")
-def hello(name):
-    """Привітати користувача по імені"""
-    click.echo(f"Hello, {name}!")
-    print("Hello server")

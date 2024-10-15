@@ -5,4 +5,6 @@ app.config.from_pyfile("config.py", silent=True)
 # app.config.from_object("config")
 
 from . import views
+from .commands import cli_bp
+app.register_blueprint(cli_bp) 
 
