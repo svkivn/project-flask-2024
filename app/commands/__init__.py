@@ -3,7 +3,6 @@ import click
 
 cli_bp = Blueprint("cli", __name__)
 
-
 # Додаємо команду за допомогою Click
 @cli_bp.cli.command("hello")
 @click.argument("name")
