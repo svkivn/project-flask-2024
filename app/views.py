@@ -1,5 +1,21 @@
 from . import app
-from flask import request, redirect, url_for
+from flask import request, redirect, url_for, render_template
+
+
+@app.context_processor
+def some_processor():
+    def full_name(product):
+        return '{0} / {1}'.format(product['category'], product['name'])
+    return {'full_name': full_name}
+
+@app.context_processor
+def some_processor_static():
+    return {'utc': "18:14"}
+
+
+@app.route('/ctx')   # URL '/' to be handled by main() route handler
+def ctx():
+    return render_template("base.html", product=dict(category="cat", name="flask"))
 
 @app.route('/')   # URL '/' to be handled by main() route handler
 def main():
