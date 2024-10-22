@@ -14,5 +14,7 @@ app.config.from_object(config.get("testing"))  # Використання кон
 
 from . import views
 from .commands import cli_bp
-app.register_blueprint(cli_bp) 
+from .bpcookie import cook_bp as cook
+app.register_blueprint(cli_bp)
+app.register_blueprint(cook) 
 

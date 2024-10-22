@@ -13,6 +13,7 @@
     <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Логотип">
 
     {{ full_name(product) }}
+    {% include "_menu.html" %}
 
     {% block content %}
     {{ utc }}
