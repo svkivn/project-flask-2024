@@ -14,7 +14,7 @@ def home():
 
 #users
 
-@app.route("/hi/<string:name>")   #/hi/ivan?age=45&q=fdfdf
+@app.route("/hi/<string:name>")   #/hi/ivan?age=45
 def greetings(name):
     name = name.upper()
     age = request.args.get("age", None, int)   
