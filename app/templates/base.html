@@ -15,14 +15,17 @@
     </header>
 
     {% with msg = get_flashed_messages(with_categories=True) %}
-        {% if msg %}
+    <!-- Categories: success (green), info (blue), warning (yellow), danger (red) -->
+    {% if msg %}
         {% for category, message in msg %}
-        <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
-        <strong>{{ message }}</strong>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
+            <div class="alert alert-{{ category }} alert-dismissible" role="alert">
+                <strong>{{ message }}</strong>
+                <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
         {% endfor %}
-        {% endif %}
+      {% endif %}
     {% endwith %}
     
     <div class="container">
