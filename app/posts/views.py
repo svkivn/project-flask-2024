@@ -16,7 +16,8 @@ def add_post():
         #обробка логіки
         flash(f"Post {title} added successfully!", "success")
         return redirect(url_for(".get_posts"))
-
+    else:
+        flash(f"Enter the correct data in the form!", "danger")
     return render_template("add_post.html", form=form)
 
 @post_bp.route('/') 
