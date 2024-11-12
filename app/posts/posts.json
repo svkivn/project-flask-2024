@@ -38,5 +38,10 @@
         "id": 8,
         "title": "Flask Appl",
         "content": "Flask Application\r\n"
+    },
+    {
+        "id": 9,
+        "title": "Factory ",
+        "content": "Factory Method is a creational design pattern that provides an interface for creating objects in a superclass, but allows subclasses to alter the type of objects that will be created.\r\nFactory Method is a creational design pattern that provides an interface for creating objects in a superclass, but allows subclasses to alter the type of objects that will be created.\r\nFactory Method is a creational design pattern that provides an interface for creating objects in a superclass, but allows subclasses to alter the type of objects that will be created."
     }
 ]

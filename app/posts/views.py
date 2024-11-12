@@ -11,6 +11,7 @@ def add_post():
         title = form.title.data
         content = form.content.data
         #обробка логіки
+        
         new_post = {"id": len(load_posts()) + 1, 'title': title, 'content': content}
         save_post(new_post)
         flash(f"Post {title} added successfully!", "success")
