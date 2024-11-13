@@ -1,8 +1,8 @@
 from . import post_bp
-from flask import render_template, abort, flash, redirect, url_for
+from flask import render_template, request, abort, flash, redirect, url_for
 from .forms import PostForm
 
-from .utils import add_post, load_posts, get_post
+from .utils import save_post, load_posts, get_post
 
 @post_bp.route('/add_post', methods=['GET', 'POST'])
 def add_post():
@@ -11,10 +11,12 @@ def add_post():
         title = form.title.data
         content = form.content.data
         post_new = {"id": 1, "title": title, "content": content}
-        add_post(post_new)
+        save_post(post_new)
         flash(f'Post {title} added successfully!', 'success')
         return redirect(url_for('.add_post'))
-    
+    elif form.errors:
+        flash(f"Enter the correct data in the form!", "danger")
+   
     return render_template("add_post.html", form=form)
 
 

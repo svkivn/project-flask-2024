@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "title": "Object Relational Mapping",
+        "content": "ORM is a technique that maps database tables and their associations to programming language objects, allowing developers to work with a relational database in an object-oriented manner without writing SQL queries.\r\n\r\nFlask SQLAlchemy enables developers to perform tasks like defining models, creating queries, and easily managing database migrations and supports multiple database management systems such as SQLite, MySQL, and PostgreSQL."
+    },
+    {
+        "id": 1,
+        "title": "sdsdcs",
+        "content": "sdfsf"
+    },
+    {
+        "id": 1,
+        "title": "dsds",
+        "content": "sdsd"
+    },
+    {
+        "id": 1,
+        "title": "hfgjghj",
+        "content": "gjghhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhj gjghhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhj gjghhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhj gjghhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhj gjghhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhj gjghhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhj gjghhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhj gjghhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhj "
+    }
+]
