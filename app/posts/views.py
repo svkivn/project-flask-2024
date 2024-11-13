@@ -2,12 +2,7 @@ from . import post_bp
 from flask import render_template, abort, flash, redirect, url_for
 from .forms import PostForm
 
-posts = [
-    {"id": 1, 'title': 'My First Post', 'content': 'This is the content of my first post.', 'author': 'John Doe'},
-    {"id": 2, 'title': 'Another Day', 'content': 'Today I learned about Flask macros.', 'author': 'Jane Smith'},
-    {"id": 3, 'title': 'Flask and Jinja2', 'content': 'Jinja2 is powerful for templating.', 'author': 'Mike Lee'}
-] 
-
+from .utils import add_post, load_posts, get_post
 
 @post_bp.route('/add_post', methods=['GET', 'POST'])
 def add_post():
@@ -15,7 +10,8 @@ def add_post():
     if form.validate_on_submit():
         title = form.title.data
         content = form.content.data
-        print(title, content)
+        post_new = {"id": 1, "title": title, "content": content}
+        add_post(post_new)
         flash(f'Post {title} added successfully!', 'success')
         return redirect(url_for('.add_post'))
     
@@ -24,11 +20,12 @@ def add_post():
 
 @post_bp.route('/') 
 def get_posts():
+    posts = load_posts()
     return render_template("posts.html", posts=posts)
 
 @post_bp.route('/<int:id>') 
 def detail_post(id):
-    if id > 3:
-        abort(404)
-    post = posts[id-1]
-    return render_template("detail_post.html", post=post)
+    post = get_post(id)
+    if post:
+        return render_template("detail_post.html", post=post)
+    return abort(404)
