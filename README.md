@@ -1,6 +1,8 @@
 # Flask-SQLAlchemy
 Flask-SQLAlchemy is an ORM that abstracts complex SQL queries, allowing you to interact with databases using Python classes.
 
+<img src="app/static/images/sqla.png" width="50%" height="50%">
+
 ## Documentation
 - https://flask-sqlalchemy.readthedocs.io/en/stable/
 - https://flask.palletsprojects.com/en/stable/patterns/sqlalchemy/
@@ -16,4 +18,4 @@ Flask-SQLAlchemy is an ORM that abstracts complex SQL queries, allowing you to i
 - https://github.com/JayBhatt2021/improved-flask-tutorial-app
 - https://github.com/AnthonyRChao/flask-mega-tutorial-2024
 
-![Alt text](app/static/images/sqla.png){: width="30%"}
+
