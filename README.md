@@ -13,3 +13,5 @@ Flask-SQLAlchemy is an ORM that abstracts complex SQL queries, allowing you to i
 
 ## Code examples
 - https://github.com/0brain/flask_sqlalchemy_tutorial
+- https://github.com/JayBhatt2021/improved-flask-tutorial-app
+- https://github.com/AnthonyRChao/flask-mega-tutorial-2024
