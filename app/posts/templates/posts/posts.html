@@ -22,13 +22,13 @@
     <!-- Відображення списку постів у вигляді карток -->
     <div class="row">
         {% for post in posts %}
-        <div class="col-md-4 mb-3">
+        <div class="col-md-3 mb-3">
             <div class="card h-100">
                 <img src="{{ url_for('.static', filename='img/default.png') }}" 
                         class="card-img-top" height="150px">
                 <div class="card-body">
                     <h5 class="card-title">{{ post.title }}</h5> 
-                    <p class="card-text">Post ID: {{ post.id }}</p>
+                    <p class="card-text">Сategory: {{ post.category }}</p>
                     <p class="card-text">{{ post.content | truncate(23) }}</p>
                     <a href="{{ url_for('.detail_post', id=post['id']) }}" class="btn btn-outline-primary">View Post</a>
                 </div>

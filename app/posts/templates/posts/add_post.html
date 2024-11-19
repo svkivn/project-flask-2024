@@ -22,7 +22,19 @@
                 <div class="form-group mb-3">
                     {{ render_field(form.content) }}
                 </div>
+
+                <div class="form-group mb-3">
+                    {{ render_field(form.is_active, class="") }}
+                </div>
+
+                <div class="form-group mb-3">
+                    {{ render_field(form.publish_date) }}
+                </div>
                 
+                <div class="form-group mb-3">
+                    {{ render_field(form.category, class="") }}
+                </div>
+
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>

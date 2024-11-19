@@ -8,6 +8,10 @@ class Post(db.Model):
     title = db.Column(db.String(100), nullable=False)
     content = db.Column(db.Text, nullable=True)
     posted = db.Column(db.DateTime, default=dt.now())
+    is_active =  db.Column(db.Boolean, default=True) # Поле для активності посту
+    category = db.Column(db.String(20), nullable=True)
+    author = db.Column(db.String(20), nullable=True)
+    
 
     def __repr__(self):
         return f"<Post(title={self.title})>"
