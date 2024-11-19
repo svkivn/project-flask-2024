@@ -18,7 +18,7 @@ def create_app(config_name="config"):
 
     with app.app_context():
         from . import views
-
+        
         from .posts import post_bp
         from .users import bp as user_bp
         app.register_blueprint(post_bp)
