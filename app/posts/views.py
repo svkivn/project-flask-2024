@@ -37,24 +37,32 @@ def get_posts():
 
 @post_bp.route('/<int:id>') 
 def detail_post(id):
-    post = get_post(id)
-    if post:
-        return render_template("detail_post.html", post=post)
-    return abort(404)
+    post = db.get_or_404(Post, id)
+    return render_template("detail_post.html", post=post)
 
 
 @post_bp.route('/edit/<int:post_id>', methods=['GET', 'POST'])
 def edit_post(post_id):
     post = db.get_or_404(Post, post_id) # Якщо об'єкт не знайдено, автоматично повертається помилка 404
     form = PostForm(obj=post)          # Ініціалізує форму PostForm, заповнюючи її полями об'єкта post
+    form.publish_date.data = post.posted
     if form.validate_on_submit():
         #Оновлення полів title та content, оновлення у БД
         post.title = form.title.data
         post.content = form.content.data
         db.session.commit()
         flash('Post updated successfully!')
-        return redirect(url_for('.get_posts'))
+        return redirect(url_for('.detail_post', id=post.id))
     return render_template('add_post.html', form=form)
 
+from flask import request
+
+@post_bp.route('/<int:post_id>', methods=['POST'])
+def delete_post(post_id):
+    post = db.get_or_404(Post, post_id)  # Отримуємо пост або 404
+    #db.session.delete(post)  # Видаляємо пост
+    #db.session.commit()  # Зберігаємо зміни в базі даних
+    flash(f'Post {post.id} deleted successfully!', 'success')  # Відображаємо повідомлення
+    return redirect(url_for('.get_posts'))  # Перенаправляємо на список постів
 
 
