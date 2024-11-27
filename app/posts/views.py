@@ -2,6 +2,7 @@ from . import post_bp
 from flask import render_template, request, abort, flash, redirect, url_for
 from .forms import PostForm
 from .models import Post
+from app.users.models import User
 from app import db
 
 from .utils import save_post, load_posts, get_post
@@ -9,6 +10,11 @@ from .utils import save_post, load_posts, get_post
 @post_bp.route('/add_post', methods=['GET', 'POST'])
 def add_post():
     form = PostForm()
+    
+    # Отримання списку авторів із бази даних
+    authors = User.query.all()
+    form.author_id.choices = [(author.id, author.username) for author in authors]
+
     if form.validate_on_submit():
         title = form.title.data
         content = form.content.data
@@ -18,7 +24,7 @@ def add_post():
         publish_date = form.publish_date.data
         post_new = Post(title=title, content=content, 
                         is_active=is_active, category=category,
-                        posted = publish_date)
+                        posted = publish_date, user_id = form.author_id.data )
         db.session.add(post_new)
         db.session.commit()
         flash(f'Post {title} added successfully!', 'success')

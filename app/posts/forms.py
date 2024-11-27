@@ -13,7 +13,8 @@ class PostForm(FlaskForm):
     is_active = BooleanField('Active Post')  # Чекбокс для відмітки активності поста
     publish_date = DateTimeLocalField('Publish Date', format="%Y-%m-%dT%H:%M", default=dt.now())                 # Поле для вибору дати публікації
     category = SelectField('Category', choices=CATEGORIES, validators=[DataRequired()]) 
+    author_id = SelectField("Author", coerce=int)
 
-    submit =SubmitField("Add Post")
+    submit = SubmitField("Add Post")
 
     
