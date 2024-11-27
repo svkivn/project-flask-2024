@@ -60,8 +60,8 @@ from flask import request
 @post_bp.route('/<int:post_id>', methods=['POST'])
 def delete_post(post_id):
     post = db.get_or_404(Post, post_id)  # Отримуємо пост або 404
-    #db.session.delete(post)  # Видаляємо пост
-    #db.session.commit()  # Зберігаємо зміни в базі даних
+    db.session.delete(post)  # Видаляємо пост
+    db.session.commit()  # Зберігаємо зміни в базі даних
     flash(f'Post {post.id} deleted successfully!', 'success')  # Відображаємо повідомлення
     return redirect(url_for('.get_posts'))  # Перенаправляємо на список постів
 
