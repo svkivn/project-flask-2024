@@ -1,21 +1,26 @@
-# Flask-SQLAlchemy
-Flask-SQLAlchemy is an ORM that abstracts complex SQL queries, allowing you to interact with databases using Python classes.
+# Register and login
 
-<img src="app/static/images/sqla.png" width="50%" height="50%">
 
 ## Documentation
-- https://flask-sqlalchemy.readthedocs.io/en/stable/
-- https://flask.palletsprojects.com/en/stable/patterns/sqlalchemy/
+- Flask-Bcrypt https://flask-bcrypt.readthedocs.io/en/1.0.1/index.html
+- Email-validation https://stackoverflow.com/questions/61356834/wtforms-install-email-validator-for-email-validation-support
+- Flask-Login https://flask-login.readthedocs.io/en/latest/
+
 
 ## Tutorials
+- What is password hashing? https://stytch.com/blog/what-is-password-hashing/?authuser=0
+- https://codingnomads.com/python-flask-login-manager
 - https://github.com/hackersandslackers/flask-sqlalchemy-tutorial
-- https://codingnomads.com/python-flask-sqlalchemy-query-database
-- https://neon.tech/guides/flask-database-migrations
-- https://www.digitalocean.com/community/tutorial-series/how-to-create-web-sites-with-flask
+
+### Unit Testing
+- https://testdriven.io/blog/flask-contexts/
+- https://www.gitauharrison.com/articles/unit-testing/flask
+- https://blog.miguelgrinberg.com/post/how-to-write-unit-tests-in-python-part-3-web-applications
+- https://testdriven.io/blog/flask-pytest/
+
 
 ## Code examples
-- https://github.com/0brain/flask_sqlalchemy_tutorial
-- https://github.com/JayBhatt2021/improved-flask-tutorial-app
 - https://github.com/AnthonyRChao/flask-mega-tutorial-2024
-
+- 
+- 
 
