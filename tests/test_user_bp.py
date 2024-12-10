@@ -1,11 +1,12 @@
 import unittest
-from app import app  # Переконайтеся, що імпортували ваш Flask-додаток
+from app import create_app  # Переконайтеся, що імпортували ваш Flask-додаток
 
 
 class FlaskAppTestCase(unittest.TestCase):
 
     def setUp(self):
         """Налаштування клієнта тестування перед кожним тестом."""
+        app = create_app()
         app.config["TESTING"] = True
         self.client = app.test_client()
 
@@ -22,7 +23,3 @@ class FlaskAppTestCase(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn(b"ADMINISTRATOR", response.data)
         self.assertIn(b"45", response.data)
-
-
-if __name__ == "__main__":
-    unittest.main()
