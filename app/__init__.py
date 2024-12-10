@@ -2,6 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from sqlalchemy.orm import DeclarativeBase
+from config import config
 
 class Base(DeclarativeBase):
     pass
@@ -9,9 +10,9 @@ class Base(DeclarativeBase):
 db = SQLAlchemy(model_class=Base)
 migrate = Migrate()
 
-def create_app(config_name="config"):
+def create_app(config_name="default"):
     app = Flask(__name__)
-    app.config.from_object(config_name)
+    app.config.from_object(config.get(config_name))
 
     db.init_app(app)
     migrate.init_app(app, db)

@@ -6,8 +6,8 @@ class FlaskAppTestCase(unittest.TestCase):
 
     def setUp(self):
         """Налаштування клієнта тестування перед кожним тестом."""
-        app = create_app()
-        app.config["TESTING"] = True
+        app = create_app(config_name="test")
+        # app.config["TESTING"] = True
         self.client = app.test_client()
 
     def test_greetings_page(self):
